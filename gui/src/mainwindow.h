@@ -30,11 +30,16 @@
 
 #define STRINGIZER(arg) #arg
 #define STR_VALUE(arg) STRINGIZER(arg)
-#define GIT_VERSION_TAG_STRING STR_VALUE(GIT_VERSION_TAG)
 #define GIT_CURRENT_SHA_STRING STR_VALUE(GIT_CURRENT_SHA)
 
+struct VersionInfo {
+    QString major;
+    QString minor;
+    QString appendix;
+    bool isValid = false;
+};
+
 constexpr int MAX_LOG_LENGTH=6000; // How many bytes to keep of log data in the gui
-const QString version=GIT_VERSION_TAG_STRING; // Current Version Number
 const QStringList firmwares={"BNO055","NANO33BLE"}; // Allowable hardware types
 const QUrl helpurl("https://headtracker.gitbook.io/head-tracker-v2.2/settings/gui-settings");
 const QUrl discordurl("https://discord.gg/ux5hEaNSPQ");
